@@ -85,6 +85,26 @@
     	created(): 启动异步任务(启动定时器,发送ajax请求, 绑定监听)
     	beforeDestroy(): 做一些收尾的工作
 
+	<!--
+	1. vue对象的生命周期
+	  1). 初始化显示
+	    * beforeCreate()
+	     * 在此之间实现数据代理 
+	    * created()
+	     * 在此之间实现编译模板 （将模板中的JS语法替换成具体的值）
+	    * beforeMount()
+	    * mounted()
+	  2). 更新状态
+	    * beforeUpdate()
+	    * updated()
+	  3). 销毁vue实例: vm.$destory()
+	    * beforeDestory()
+	    * destoryed()
+	2. 常用的生命周期方法
+	  created()/mounted(): 发送ajax请求, 启动定时器等异步任务
+	  beforeDestory(): 做收尾工作, 如: 清除定时器
+	-->
+
 # 6. 页面指令
 	v-text/v-html: 指定标签体
     	* v-text : 当作纯文本
@@ -146,4 +166,10 @@
 	sort()
 	reverse()
 
-	不能通过下标来改变数组内部的数据，vue不会知道变化，可以通过数组的方法来实现
+	不能通过下标来改变数组内部的数据，vue不会知道变化，可以通过数组的方法来实现  
+
+    2)页面的显示是根据数据来显示的，要想改变初始化页面，就要改变初始化数据   
+    3）input的两种DOM事件监听
+      -input事件。输入过程中触发
+      -change事件，失去焦点时触发（v-model.lazy就是change监听） 
+    4）vm代理data对象中的数据
